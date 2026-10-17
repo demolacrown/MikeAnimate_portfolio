@@ -8,7 +8,18 @@
 <title>MikeAnimate | African Stories Reimagined</title>
 
 <meta name="description" content="Discover African legends, Yoruba traditions, royal histories and cinematic stories through MikeAnimate.">
+/* Backup: reveal the website after the intro */
+#intro {
+  animation: introFailsafe 1s ease 5s forwards;
+}
 
+@keyframes introFailsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
 <style>
 :root {
   --bg: #090a0d;
