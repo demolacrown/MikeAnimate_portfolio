@@ -3,71 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090a0d">
+<meta name="theme-color" content="#0a0b0e">
 
 <title>MikeAnimate | African Stories Reimagined</title>
 
-<meta name="description" content="Discover African legends, Yoruba traditions, royal histories and cinematic stories through MikeAnimate.">
-/* Backup: reveal the website after the intro */
-#intro {
-  animation: introFailsafe 1s ease 5s forwards;
-}
+<meta name="description" content="Discover Yoruba legends, African cultural traditions, royal histories and cinematic storytelling with MikeAnimate.">
 
-@keyframes introFailsafe {
-  to {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
 <style>
 :root {
-  --bg: #090a0d;
-  --panel: #111319;
+  --bg: #0a0b0e;
+  --panel: #12141a;
   --gold: #d8b36a;
-  --gold-light: #f4dfaa;
-  --text: #f4f0e7;
-  --muted: #a5a5ad;
-  --border: rgba(216,179,106,.23);
+  --light-gold: #f1dba5;
+  --white: #f5f1e9;
+  --muted: #a6a7b0;
+  --border: rgba(216,179,106,.25);
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
 }
 
 body {
   background: var(--bg);
-  color: var(--text);
+  color: var(--white);
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-body.no-scroll {
-  overflow: hidden;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 button {
   font: inherit;
-}
-
-.gold {
-  color: var(--gold);
 }
 
 .container {
@@ -75,124 +53,37 @@ button {
   margin: auto;
 }
 
+.gold {
+  color: var(--gold);
+}
+
 .eyebrow {
   color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 4px;
   font: 11px Arial, sans-serif;
-  margin-bottom: 17px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
 }
 
 .section {
-  padding: 90px 0;
+  padding: 85px 0;
 }
 
 .section-heading {
-  max-width: 650px;
-  margin-bottom: 36px;
+  max-width: 680px;
+  margin-bottom: 35px;
 }
 
 .section-heading h2 {
-  font-size: clamp(32px, 6vw, 51px);
-  line-height: 1.12;
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: 1.15;
   font-weight: normal;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
 .section-heading p {
   color: var(--muted);
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-/* CINEMATIC INTRO */
-
-#intro {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background:
-    radial-gradient(ellipse at 50% 55%, #382a18 0%, #14110d 30%, #050608 75%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: opacity .8s ease, visibility .8s ease;
-}
-
-#intro.hide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.intro-content {
-  position: relative;
-  z-index: 2;
-  padding: 25px;
-  animation: introReveal 1.4s ease both;
-}
-
-.intro-symbol {
-  font-size: clamp(60px, 15vw, 100px);
-  color: var(--gold);
-  text-shadow: 0 0 55px rgba(216,179,106,.6);
-  margin-bottom: 15px;
-  animation: float 3s ease-in-out infinite;
-}
-
-.intro-title {
-  font-size: clamp(39px, 10vw, 78px);
-  letter-spacing: 5px;
-  line-height: 1.1;
-}
-
-.intro-subtitle {
-  margin-top: 20px;
-  color: var(--gold-light);
-  letter-spacing: 4px;
-  font: 10px Arial, sans-serif;
-}
-
-.intro-line {
-  width: 90px;
-  height: 1px;
-  background: var(--gold);
-  margin: 25px auto;
-  animation: expandLine 2s ease both;
-}
-
-.intro-note {
-  font: 11px Arial, sans-serif;
-  letter-spacing: 2px;
-  color: var(--muted);
-}
-
-.skip-intro {
-  position: absolute;
-  right: 24px;
-  bottom: 25px;
-  border: 1px solid var(--border);
-  color: var(--text);
-  background: transparent;
-  padding: 10px 17px;
-  cursor: pointer;
-  font: 11px Arial, sans-serif;
-}
-
-@keyframes introReveal {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes expandLine {
-  from { width: 0; }
-  to { width: 90px; }
+  font: 14px/1.9 Arial, sans-serif;
 }
 
 /* NAVIGATION */
@@ -200,18 +91,17 @@ button {
 header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(9,10,13,.92);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  z-index: 20;
+  background: rgba(10,11,14,.96);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .nav {
-  min-height: 75px;
+  min-height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 15px;
 }
 
 .logo {
@@ -227,60 +117,47 @@ header {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 23px;
   font: 12px Arial, sans-serif;
-  color: #d2d0ca;
+}
+
+.nav-links a {
+  color: #d4d1ca;
 }
 
 .nav-links a:hover {
   color: var(--gold);
 }
 
-.nav-button {
+.nav-links .nav-cta {
   border: 1px solid var(--border);
-  padding: 9px 13px;
-  color: var(--gold-light);
+  padding: 9px 12px;
+  color: var(--gold);
 }
 
 /* HERO */
 
 .hero {
-  min-height: 650px;
-  display: flex;
-  align-items: center;
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 80% 45%, rgba(126,85,35,.23), transparent 42%),
-    linear-gradient(110deg, #090a0d 20%, #15120e 100%);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  border: 1px solid rgba(216,179,106,.12);
-  border-radius: 50%;
-  right: -90px;
-  top: 100px;
-  box-shadow:
-    0 0 0 40px rgba(216,179,106,.025),
-    0 0 0 90px rgba(216,179,106,.02);
+    radial-gradient(ellipse at 80% 45%, rgba(140,91,33,.2), transparent 45%),
+    linear-gradient(120deg, #0a0b0e, #17130e);
 }
 
 .hero-grid {
+  min-height: 590px;
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   align-items: center;
-  gap: 40px;
-  padding: 80px 0;
-  position: relative;
+  gap: 35px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .hero h1 {
-  font-size: clamp(43px, 7vw, 78px);
-  line-height: 1.04;
+  font-size: clamp(43px, 7vw, 76px);
+  line-height: 1.08;
   font-weight: normal;
   margin-bottom: 25px;
 }
@@ -292,98 +169,103 @@ header {
 
 .hero-copy {
   max-width: 510px;
-  color: #b8b7bd;
-  font: 15px/1.9 Arial, sans-serif;
+  color: #b9b8c0;
+  font: 14px/2 Arial, sans-serif;
   margin-bottom: 30px;
 }
 
-.button-row {
+.buttons {
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 .btn {
   display: inline-block;
-  padding: 14px 21px;
+  padding: 13px 18px;
   border: 1px solid var(--border);
-  font: 12px Arial, sans-serif;
-  cursor: pointer;
+  font: 11px Arial, sans-serif;
   transition: .25s;
+  cursor: pointer;
 }
 
 .btn-primary {
   background: var(--gold);
-  color: #14110b;
+  color: #15120b;
   border-color: var(--gold);
   font-weight: bold;
 }
 
 .btn-primary:hover {
-  background: var(--gold-light);
+  background: var(--light-gold);
 }
 
 .btn-secondary:hover {
-  border-color: var(--gold);
   color: var(--gold);
+  border-color: var(--gold);
 }
 
 .hero-art {
-  min-height: 390px;
+  min-height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.art-orbit {
-  position: absolute;
-  width: min(320px, 75vw);
-  height: min(320px, 75vw);
-  border: 1px solid rgba(216,179,106,.28);
+.orbit {
+  width: min(310px, 72vw);
+  height: min(310px, 72vw);
+  border: 1px solid rgba(216,179,106,.32);
   border-radius: 50%;
-  box-shadow: 0 0 65px rgba(216,179,106,.08);
+  position: absolute;
+  box-shadow: 0 0 60px rgba(216,179,106,.07);
 }
 
-.art-orbit::before,
-.art-orbit::after {
+.orbit::before {
   content: "";
   position: absolute;
-  inset: 20px;
-  border: 1px solid rgba(216,179,106,.13);
+  inset: 18px;
+  border: 1px solid rgba(216,179,106,.2);
   border-radius: 50%;
 }
 
-.art-orbit::after {
+.orbit::after {
+  content: "";
+  position: absolute;
   inset: -22px;
-  border-style: dashed;
-  opacity: .5;
+  border: 1px dashed rgba(216,179,106,.17);
+  border-radius: 50%;
 }
 
-.royal-symbol {
-  position: relative;
-  z-index: 2;
-  font-size: clamp(130px, 24vw, 225px);
+.crown {
+  z-index: 1;
   color: var(--gold);
-  filter: drop-shadow(0 0 30px rgba(216,179,106,.25));
+  font-size: clamp(130px, 24vw, 210px);
+  text-shadow: 0 0 45px rgba(216,179,106,.25);
   animation: float 5s ease-in-out infinite;
 }
 
 .art-caption {
   position: absolute;
   bottom: 0;
-  font: 10px Arial, sans-serif;
-  color: var(--muted);
-  letter-spacing: 2px;
   text-align: center;
+  color: var(--muted);
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
 }
 
-/* STATS */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* STATISTICS */
 
 .stats {
+  background: #0e0f13;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: #0d0e12;
 }
 
 .stats-grid {
@@ -392,8 +274,8 @@ header {
 }
 
 .stat {
-  padding: 25px 10px;
   text-align: center;
+  padding: 24px 8px;
   border-right: 1px solid var(--border);
 }
 
@@ -404,18 +286,18 @@ header {
 .stat strong {
   display: block;
   color: var(--gold);
-  font-size: 27px;
+  font-size: 28px;
   font-weight: normal;
 }
 
 .stat span {
+  color: var(--muted);
   font: 10px Arial, sans-serif;
   letter-spacing: 1px;
-  color: var(--muted);
   text-transform: uppercase;
 }
 
-/* CHARACTERS */
+/* CHARACTER GALLERY */
 
 .filters {
   display: flex;
@@ -425,29 +307,29 @@ header {
 }
 
 .filter-btn {
-  border: 1px solid #30313a;
-  color: #b9b9c0;
   background: transparent;
-  padding: 10px 15px;
+  border: 1px solid #353640;
+  color: #c5c4cb;
+  padding: 10px 14px;
   cursor: pointer;
-  font: 11px Arial, sans-serif;
+  font: 10px Arial, sans-serif;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
   background: var(--gold);
-  color: #15120c;
   border-color: var(--gold);
+  color: #14110b;
 }
 
 .character-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
 .character-card {
-  background: linear-gradient(145deg, #171920, #0d0e12);
+  background: linear-gradient(145deg, #171920, #101116);
   border: 1px solid rgba(255,255,255,.08);
   overflow: hidden;
   transition: transform .3s, border-color .3s;
@@ -460,29 +342,29 @@ header {
 
 .character-art {
   height: 190px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 70%, rgba(216,179,106,.20), transparent 55%),
-    linear-gradient(145deg, #292116, #101116);
+    radial-gradient(ellipse at 50% 65%, rgba(216,179,106,.2), transparent 60%),
+    linear-gradient(140deg, #292217, #111218);
 }
 
 .character-art::before {
   content: "";
   position: absolute;
-  width: 170px;
-  height: 170px;
-  border: 1px solid rgba(216,179,106,.16);
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(216,179,106,.23);
   border-radius: 50%;
 }
 
 .character-art::after {
   content: "";
   position: absolute;
-  width: 220px;
+  width: 240px;
   height: 1px;
   background: rgba(216,179,106,.18);
   transform: rotate(-35deg);
@@ -490,23 +372,21 @@ header {
 
 .character-symbol {
   position: relative;
-  z-index: 2;
-  font-size: 76px;
-  color: var(--gold-light);
-  text-shadow: 0 0 35px rgba(216,179,106,.25);
+  z-index: 1;
+  color: var(--light-gold);
+  font-size: 75px;
+  text-shadow: 0 0 35px rgba(216,179,106,.3);
 }
 
-.character-category {
+.category-label {
   position: absolute;
-  left: 12px;
   top: 12px;
-  z-index: 3;
+  left: 12px;
+  z-index: 2;
+  background: rgba(0,0,0,.65);
+  color: var(--light-gold);
+  padding: 5px 8px;
   font: 9px Arial, sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: rgba(0,0,0,.55);
-  color: var(--gold-light);
-  padding: 6px 8px;
 }
 
 .character-info {
@@ -520,27 +400,27 @@ header {
 }
 
 .character-info p {
-  font: 12px/1.8 Arial, sans-serif;
+  min-height: 70px;
   color: var(--muted);
-  min-height: 65px;
+  font: 12px/1.8 Arial, sans-serif;
 }
 
 .story-link {
-  display: inline-block;
-  margin-top: 17px;
-  background: none;
+  margin-top: 15px;
+  padding: 0;
   border: 0;
+  background: none;
   color: var(--gold);
   cursor: pointer;
   font: 11px Arial, sans-serif;
   letter-spacing: 1px;
 }
 
-/* FEATURE SECTION */
+/* STORY SECTION */
 
 .feature {
   background:
-    radial-gradient(ellipse at 0% 50%, rgba(135,91,39,.14), transparent 55%),
+    radial-gradient(ellipse at 0 50%, rgba(130,85,36,.15), transparent 55%),
     #0e0f13;
   border-top: 1px solid rgba(255,255,255,.05);
   border-bottom: 1px solid rgba(255,255,255,.05);
@@ -549,92 +429,89 @@ header {
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 55px;
   align-items: center;
+  gap: 45px;
 }
 
 .feature h2 {
-  font-size: clamp(32px, 5vw, 49px);
-  line-height: 1.15;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.2;
   font-weight: normal;
   margin-bottom: 20px;
 }
 
 .feature p {
   color: var(--muted);
-  font: 14px/2 Arial, sans-serif;
+  font: 13px/2 Arial, sans-serif;
   margin-bottom: 18px;
 }
 
 .feature-panel {
-  min-height: 300px;
+  min-height: 290px;
+  padding: 32px;
   border: 1px solid var(--border);
-  background: linear-gradient(135deg, #211b12, #101116);
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background: linear-gradient(145deg, #241d12, #101116);
 }
 
-.feature-panel .big-symbol {
-  font-size: 75px;
+.feature-panel .symbol {
+  font-size: 70px;
   color: var(--gold);
-  margin-bottom: 15px;
 }
 
 .feature-panel h3 {
-  font-size: 26px;
+  font-size: 27px;
   font-weight: normal;
+  margin-bottom: 10px;
 }
 
-.feature-panel p {
-  font-size: 12px;
-  margin-top: 10px;
-}
+/* OUR VISION */
 
-/* ABOUT */
-
-.about-grid {
+.vision-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 24px;
 }
 
-.about-card {
+.vision-card {
   border-top: 1px solid var(--gold);
-  padding: 24px 5px;
+  padding: 22px 4px;
 }
 
-.about-card .number {
-  font-size: 34px;
+.vision-card .number {
   color: var(--gold);
+  font-size: 34px;
 }
 
-.about-card h3 {
-  font-size: 21px;
+.vision-card h3 {
+  font-size: 22px;
   font-weight: normal;
-  margin: 12px 0;
+  margin: 10px 0;
 }
 
-.about-card p {
-  font: 12px/1.9 Arial, sans-serif;
+.vision-card p {
   color: var(--muted);
+  font: 12px/1.9 Arial, sans-serif;
 }
 
 /* FOOTER */
 
 footer {
-  border-top: 1px solid var(--border);
-  padding: 35px 0;
   background: #07080a;
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
 }
 
 .footer-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-brand {
+  font-size: 22px;
+  font-weight: bold;
 }
 
 footer p {
@@ -642,21 +519,16 @@ footer p {
   font: 11px/1.8 Arial, sans-serif;
 }
 
-.footer-brand {
-  font-size: 22px;
-}
-
-/* CHARACTER MODAL */
+/* STORY WINDOW */
 
 #storyModal {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 200;
-  background: rgba(0,0,0,.85);
-  backdrop-filter: blur(8px);
+  z-index: 100;
   padding: 20px;
   overflow-y: auto;
+  background: rgba(0,0,0,.85);
   align-items: center;
   justify-content: center;
 }
@@ -669,45 +541,44 @@ footer p {
   width: min(600px, 100%);
   max-height: 90vh;
   overflow-y: auto;
-  background: #111319;
-  border: 1px solid var(--border);
-  padding: 30px;
   position: relative;
+  padding: 30px;
+  background: #12141a;
+  border: 1px solid var(--border);
 }
 
 .modal-close {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 10px;
+  right: 15px;
   border: 0;
   background: transparent;
   color: var(--gold);
-  font-size: 27px;
+  font-size: 30px;
   cursor: pointer;
 }
 
 .modal-symbol {
-  font-size: 65px;
   color: var(--gold);
-  margin-bottom: 10px;
+  font-size: 65px;
 }
 
 .modal-box h2 {
-  font-size: 35px;
+  font-size: 36px;
   font-weight: normal;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .modal-box p {
+  color: #c2c1c9;
   font: 13px/2 Arial, sans-serif;
-  color: #c0c0c7;
   margin-bottom: 16px;
 }
 
 .modal-note {
   border-left: 2px solid var(--gold);
-  padding: 12px 15px;
   background: rgba(216,179,106,.06);
+  padding: 14px;
 }
 
 /* MOBILE */
@@ -717,31 +588,28 @@ footer p {
     min-height: 68px;
   }
 
+  .logo {
+    font-size: 19px;
+  }
+
   .nav-links {
     gap: 12px;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .nav-links .optional {
     display: none;
   }
 
-  .hero {
-    min-height: auto;
-  }
-
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 65px 0 45px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    gap: 15px;
   }
 
   .hero-art {
-    min-height: 280px;
-  }
-
-  .art-caption {
-    bottom: 0;
+    min-height: 270px;
   }
 
   .section {
@@ -758,7 +626,7 @@ footer p {
   }
 
   .character-symbol {
-    font-size: 59px;
+    font-size: 57px;
   }
 
   .character-info {
@@ -771,35 +639,27 @@ footer p {
 
   .character-info p {
     font-size: 11px;
-    min-height: 88px;
+    min-height: 100px;
   }
 
   .feature-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 25px;
   }
 
-  .about-grid {
+  .vision-grid {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 }
 
 @media (max-width: 380px) {
-  .nav-links {
-    gap: 9px;
-  }
-
-  .logo {
-    font-size: 19px;
-  }
-
   .character-grid {
     grid-template-columns: 1fr;
   }
 
   .character-art {
-    height: 200px;
+    height: 190px;
   }
 
   .character-info p {
@@ -809,9 +669,9 @@ footer p {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: .01ms !important;
+    animation: none !important;
     scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
+    transition: none !important;
   }
 }
 </style>
@@ -819,33 +679,21 @@ footer p {
 
 <body>
 
-<!-- CINEMATIC OPENING -->
-<div id="intro" aria-label="MikeAnimate introduction">
-  <div class="intro-content">
-    <div class="intro-symbol">♛</div>
-    <div class="intro-title">MIKE<span class="gold">ANIMATE</span></div>
-    <div class="intro-line"></div>
-    <p class="intro-subtitle">AFRICAN STORIES. TIMELESS WORLDS.</p>
-    <p class="intro-note" style="margin-top:28px">A NEW STORY IS ABOUT TO BEGIN</p>
-  </div>
-  <button class="skip-intro" id="skipIntro">SKIP INTRO ↗</button>
-</div>
-
 <header>
   <div class="container nav">
     <a href="#home" class="logo">MIKE<span>ANIMATE.</span></a>
+
     <nav class="nav-links">
       <a href="#home">Home</a>
       <a href="#characters">Characters</a>
       <a href="#stories" class="optional">Stories</a>
-      <a href="#about" class="nav-button">Our Vision</a>
+      <a href="#about" class="nav-cta">Our Vision</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="container hero-grid">
 
@@ -859,36 +707,44 @@ footer p {
 
       <p class="hero-copy">
         Enter a world of ancient kingdoms, legendary figures,
-        powerful traditions and unforgettable African stories.
+        royal histories and unforgettable African stories.
         History and imagination meet through the art of animation.
       </p>
 
-      <div class="button-row">
-        <a class="btn btn-primary" href="#characters">EXPLORE THE LEGENDS ↗</a>
-        <a class="btn btn-secondary" href="#stories">DISCOVER OUR WORLD</a>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#characters">
+          EXPLORE THE LEGENDS ↗
+        </a>
+
+        <a class="btn btn-secondary" href="#stories">
+          DISCOVER OUR WORLD
+        </a>
       </div>
     </div>
 
-    <div class="hero-art" aria-label="Decorative royal symbol">
-      <div class="art-orbit"></div>
-      <div class="royal-symbol">♛</div>
-      <div class="art-caption">ROOTED IN CULTURE · CREATED FOR TOMORROW</div>
+    <div class="hero-art">
+      <div class="orbit"></div>
+      <div class="crown">♛</div>
+      <div class="art-caption">
+        ROOTED IN CULTURE · CREATED FOR TOMORROW
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- STATS -->
 <section class="stats">
   <div class="container stats-grid">
     <div class="stat">
       <strong>01</strong>
       <span>African Heritage</span>
     </div>
+
     <div class="stat">
       <strong>15</strong>
       <span>Figures to Explore</span>
     </div>
+
     <div class="stat">
       <strong>∞</strong>
       <span>Stories to Tell</span>
@@ -896,24 +752,32 @@ footer p {
   </div>
 </section>
 
-<!-- CHARACTER GALLERY -->
 <section class="section" id="characters">
   <div class="container">
 
     <div class="section-heading">
       <p class="eyebrow">THE CHARACTER ARCHIVE</p>
       <h2>Meet the <span class="gold">legends.</span></h2>
+
       <p>
         Explore legendary heroes, royal figures and important
-        personalities from Yoruba oral traditions and cultural history.
-        Select a character to discover more.
+        personalities from Yoruba oral traditions and cultural
+        history. Select a character to discover more.
       </p>
     </div>
 
     <div class="filters">
-      <button class="filter-btn active" data-filter="all">ALL FIGURES</button>
-      <button class="filter-btn" data-filter="legend">LEGENDS & HISTORY</button>
-      <button class="filter-btn" data-filter="orisa">ORISA TRADITIONS</button>
+      <button class="filter-btn active" data-filter="all">
+        ALL FIGURES
+      </button>
+
+      <button class="filter-btn" data-filter="legend">
+        LEGENDS & HISTORY
+      </button>
+
+      <button class="filter-btn" data-filter="orisa">
+        ORISA TRADITIONS
+      </button>
     </div>
 
     <div class="character-grid" id="characterGrid"></div>
@@ -921,13 +785,16 @@ footer p {
   </div>
 </section>
 
-<!-- STORY WORLD -->
 <section class="section feature" id="stories">
   <div class="container feature-grid">
 
     <div>
       <p class="eyebrow">BEYOND THE ORDINARY</p>
-      <h2>Old worlds.<br><span class="gold">New perspectives.</span></h2>
+
+      <h2>
+        Old worlds.<br>
+        <span class="gold">New perspectives.</span>
+      </h2>
 
       <p>
         Imagine ancient palaces, royal rivalries, courageous heroes,
@@ -936,18 +803,21 @@ footer p {
       </p>
 
       <p>
-        Our vision is to combine African cultural inspiration,
+        Our vision combines African cultural inspiration,
         compelling narration and beautiful animation to create
-        stories that can reach audiences around the world.
+        stories for audiences around the world.
       </p>
 
-      <a href="#about" class="btn btn-primary">DISCOVER OUR VISION ↗</a>
+      <a class="btn btn-primary" href="#about">
+        DISCOVER OUR VISION ↗
+      </a>
     </div>
 
     <div class="feature-panel">
-      <div class="big-symbol">✦</div>
+      <div class="symbol">✦</div>
       <p class="eyebrow">THE MIKEANIMATE VISION</p>
       <h3>Stories worth remembering.</h3>
+
       <p>
         From the ancient world to imaginative new adventures,
         every story deserves atmosphere, emotion and purpose.
@@ -957,43 +827,48 @@ footer p {
   </div>
 </section>
 
-<!-- OUR APPROACH -->
 <section class="section" id="about">
   <div class="container">
 
     <div class="section-heading">
       <p class="eyebrow">OUR CREATIVE PHILOSOPHY</p>
-      <h2>Culture meets <span class="gold">cinema.</span></h2>
+
+      <h2>
+        Culture meets <span class="gold">cinema.</span>
+      </h2>
+
       <p>
-        MikeAnimate is being built around three principles:
-        respect for cultural traditions, powerful storytelling,
-        and an ambitious visual imagination.
+        MikeAnimate brings together respect for cultural traditions,
+        powerful storytelling and ambitious visual imagination.
       </p>
     </div>
 
-    <div class="about-grid">
+    <div class="vision-grid">
 
-      <article class="about-card">
+      <article class="vision-card">
         <div class="number">01</div>
         <h3>Heritage</h3>
+
         <p>
           Explore Yoruba traditions, oral accounts, historical
           figures and the cultural worlds surrounding them.
         </p>
       </article>
 
-      <article class="about-card">
+      <article class="vision-card">
         <div class="number">02</div>
         <h3>Storytelling</h3>
+
         <p>
           Transform ideas into engaging stories with memorable
           characters, atmosphere, conflict and emotion.
         </p>
       </article>
 
-      <article class="about-card">
+      <article class="vision-card">
         <div class="number">03</div>
         <h3>Animation</h3>
+
         <p>
           Develop a distinctive cinematic style through original
           character designs, visual effects, sound and movement.
@@ -1001,7 +876,6 @@ footer p {
       </article>
 
     </div>
-
   </div>
 </section>
 
@@ -1009,29 +883,46 @@ footer p {
 
 <footer>
   <div class="container footer-row">
+
     <div>
-      <div class="footer-brand">MIKE<span class="gold">ANIMATE.</span></div>
+      <div class="footer-brand">
+        MIKE<span class="gold">ANIMATE.</span>
+      </div>
+
       <p>African stories. Timeless worlds.</p>
     </div>
-    <p>© <span id="year"></span> MikeAnimate. Built for storytelling.</p>
+
+    <p>
+      © <span id="year">2026</span> MikeAnimate.
+      Built for storytelling.
+    </p>
+
   </div>
 </footer>
 
-<!-- STORY MODAL -->
-<div id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div id="storyModal" role="dialog" aria-modal="true"
+     aria-labelledby="modalTitle">
+
   <div class="modal-box">
-    <button class="modal-close" id="closeModal" aria-label="Close story">×</button>
+
+    <button class="modal-close" id="closeModal"
+            aria-label="Close story">×</button>
+
     <div class="modal-symbol" id="modalSymbol"></div>
     <p class="eyebrow" id="modalCategory"></p>
     <h2 id="modalTitle"></h2>
     <p id="modalStory"></p>
+
     <div class="modal-note">
-      <p id="modalNote" style="margin:0"></p>
+      <p id="modalNote"></p>
     </div>
+
   </div>
 </div>
 
 <script>
+"use strict";
+
 const characters = [
   {
     name: "Moremi",
@@ -1039,5 +930,59 @@ const characters = [
     category: "legend",
     label: "Legendary heroine",
     short: "Remembered for courage, sacrifice and the defence of her people.",
-    story: "In a well-known Yoruba tradition, Moremi is remembered as a courageous woman associated with Ile-Ife. The story tells of her determination to help her people overcome a threat from their enemies, and of a deeply personal sacrifice connected with that achievement.",
-    note: "Her story belongs to Yoruba oral tradition, and versions differ. This profile presents the traditional account rather than claiming every detail is independently documented histor
+    story: "In a well-known Yoruba tradition, Moremi is remembered as a courageous woman associated with Ile-Ife. The story tells of her determination to help her people overcome a threat from their enemies, and of a personal sacrifice connected with that achievement.",
+    note: "Her story belongs to Yoruba oral tradition, and versions differ. This profile presents a traditional account rather than claiming every detail is independently documented history."
+  },
+  {
+    name: "Ọ̀bàtálá",
+    symbol: "✧",
+    category: "orisa",
+    label: "Orisa tradition",
+    short: "Associated with creation, wisdom and the shaping of human beings.",
+    story: "In Yoruba religious traditions, Ọ̀bàtálá is associated with creation and the shaping of human beings. He is commonly connected with wisdom, calmness, purity and responsibility.",
+    note: "Ọ̀bàtálá is a revered figure in living religious traditions. Beliefs and accounts vary among communities."
+  },
+  {
+    name: "Oranmiyan",
+    symbol: "⚔",
+    category: "legend",
+    label: "Royal tradition",
+    short: "A celebrated prince and warrior in Yoruba royal traditions.",
+    story: "Oranmiyan appears in Yoruba royal traditions connected with Ile-Ife and the histories of kingdoms including Oyo and Benin. Accounts remember him as a powerful prince and founder figure.",
+    note: "Royal traditions contain different genealogies and interpretations. Individual claims should be distinguished from independently documented history."
+  },
+  {
+    name: "Odùduwà",
+    symbol: "♜",
+    category: "legend",
+    label: "Origin traditions",
+    short: "A central figure in Yoruba origin traditions and royal genealogies.",
+    story: "Odùduwà holds a central place in many Yoruba accounts of origins and kingship. He is closely associated with Ile-Ife and royal lineages in several traditional narratives.",
+    note: "Accounts of Odùduwà vary across communities and religious interpretations."
+  },
+  {
+    name: "Ṣàngó",
+    symbol: "ϟ",
+    category: "orisa",
+    label: "Orisa tradition",
+    short: "Associated with thunder, lightning, power and justice.",
+    story: "Ṣàngó is a major figure in Yoruba religious traditions, associated with thunder and lightning. He is also remembered in traditions connected with kingship, power and justice.",
+    note: "Ṣàngó is part of a living religious tradition. Depictions should be developed with cultural respect."
+  },
+  {
+    name: "Ògún",
+    symbol: "⚒",
+    category: "orisa",
+    label: "Orisa tradition",
+    short: "Associated with iron, metalworking, tools and technology.",
+    story: "Ògún is associated with iron, blacksmithing, tools, technology and the clearing of paths. His traditions connect the material work of human communities with sacred responsibility.",
+    note: "Practices and interpretations vary across Yoruba communities and the wider African diaspora."
+  },
+  {
+    name: "Ọ̀ṣun",
+    symbol: "❋",
+    category: "orisa",
+    label: "Orisa tradition",
+    short: "Associated with freshwater, care and fertility.",
+    story: "Ọ̀ṣun is an important orisa associated with freshwater and the Osun River. Her traditions include themes of care, fertility, diplomacy and the sustaining power of water.",
+    note: "Ọ̀ṣun is revered in living 
