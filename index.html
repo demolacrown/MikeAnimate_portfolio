@@ -1358,8 +1358,31 @@ function addAIMessage(text, type = "") {
 }
 
 function getHistoryAnswer(question) {
-  const HISTORY_AI_WORKER_URL =
+<script>
+const HISTORY_AI_WORKER_URL =
   "https://rough-smoke-fe82.dcmedia388.workers.dev";
+
+const aiForm = document.getElementById("aiForm");
+const aiInput = document.getElementById("aiInput");
+const aiMessages = document.getElementById("aiMessages");
+
+function addAIMessage(text, sender = "assistant") {
+  const message = document.createElement("div");
+
+  message.className =
+    sender === "user"
+      ? "ai-message user-message"
+      : "ai-message assistant-message";
+
+  message.textContent = text;
+  message.style.whiteSpace = "pre-wrap";
+  message.style.overflowWrap = "anywhere";
+
+  aiMessages.appendChild(message);
+  aiMessages.scrollTop = aiMessages.scrollHeight;
+
+  return message;
+}
 
 async function askHistoryAI(question) {
   const response = await fetch(HISTORY_AI_WORKER_URL, {
@@ -1367,72 +1390,77 @@ async function askHistoryAI(question) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      question: question
-    })
+    body: JSON.stringify({ question })
   });
 
-  const data = await response.json();
+  const rawText = await response.text();
+
+  let data;
+
+  try {
+    data = JSON.parse(rawText);
+  } catch {
+    throw new Error("The AI service returned an invalid response.");
+  }
 
   if (!response.ok) {
     throw new Error(
       data.details ||
       data.error ||
-      "The AI service could not answer."
+      "The AI service returned error " + response.status
     );
   }
 
-  if (!data.answer) {
+  const answer = data.answer;
+
+  if (typeof answer !== "string" || !answer.trim()) {
+    console.error("Unexpected AI response:", data);
     throw new Error("The AI returned an empty answer.");
   }
 
-  return data.answer;
+  return answer.trim();
 }
 
-document.getElementById("aiForm")
-  .addEventListener("submit", async event => {
+if (aiForm && aiInput && aiMessages) {
+  aiForm.addEventListener("submit", async event => {
     event.preventDefault();
 
-    const input = document.getElementById("aiInput");
-    const button = event.currentTarget.querySelector(
-      'button[type="submit"]'
-    );
+    const question = aiInput.value.trim();
+    const button = aiForm.querySelector('button[type="submit"]');
 
-    const question = input.value.trim();
-
-    if (!question || button.disabled) return;
+    if (!question || !button || button.disabled) return;
 
     addAIMessage(question, "user");
 
-    input.value = "";
-    input.disabled = true;
+    aiInput.value = "";
+    aiInput.disabled = true;
     button.disabled = true;
     button.textContent = "Thinking...";
 
-    const loading = document.createElement("div");
-    loading.className = "ai-message";
-    loading.textContent = "Mike History AI is thinking...";
+    const loading = addAIMessage(
+      "Mike History AI is thinking..."
+    );
+
     loading.setAttribute("aria-live", "polite");
 
-    aiMessages.appendChild(loading);
-    aiMessages.scrollTop = aiMessages.scrollHeight;
-
     try {
-      const answer = await askHistoryAI(question);
-      loading.textContent = answer;
+      loading.textContent = await askHistoryAI(question);
     } catch (error) {
+      console.error("Mike History AI error:", error);
+
       loading.textContent =
         "Sorry, I couldn't get an answer. " +
         (error.message || "Please try again.");
     } finally {
-      input.disabled = false;
+      aiInput.disabled = false;
       button.disabled = false;
       button.textContent = "Ask ↗";
-      input.focus();
-
+      aiInput.focus();
       aiMessages.scrollTop = aiMessages.scrollHeight;
     }
   });
+}
+</script>
 document.querySelectorAll("[data-question]")
   .forEach(button => {
     button.addEventListener("click", () => {
