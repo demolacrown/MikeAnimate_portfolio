@@ -1356,9 +1356,8 @@ function addAIMessage(text, type = "") {
   aiMessages.appendChild(message);
   aiMessages.scrollTop = aiMessages.scrollHeight;
 }
-
+  
 function getHistoryAnswer(question) {
-<script>
 const HISTORY_AI_WORKER_URL =
   "https://rough-smoke-fe82.dcmedia388.workers.dev";
 
@@ -1460,7 +1459,6 @@ if (aiForm && aiInput && aiMessages) {
     }
   });
 }
-</script>
 document.querySelectorAll("[data-question]")
   .forEach(button => {
     button.addEventListener("click", () => {
